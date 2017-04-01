@@ -8,6 +8,7 @@ module AngularRailsTemplates
     config.angular_templates.inside_paths   = [] # defined in before_configuration
     config.angular_templates.markups        = []
     config.angular_templates.htmlcompressor = false
+    config.angular_templates.extension      = 'html'
 
     config.before_configuration do |app|
       config.angular_templates.inside_paths = [Rails.root.join('app', 'assets')]
@@ -53,7 +54,7 @@ module AngularRailsTemplates
         end
 
         # This engine wraps the HTML into JS
-        app.assets.register_engine '.html', AngularRailsTemplates::Template
+        app.assets.register_engine '.' + app.config.angular_templates.extension, AngularRailsTemplates::Template
       end
 
       # Sprockets Cache Busting

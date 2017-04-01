@@ -40,7 +40,7 @@ module AngularRailsTemplates
 
     def logical_template_path(scope)
       path = scope.logical_path.sub /^(#{configuration.ignore_prefix.join('|')})/, ''
-      "#{path}.html"
+      "#{path}.#{configuration.extension}"
     end
 
     def configuration
